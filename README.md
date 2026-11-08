@@ -87,7 +87,8 @@ page breaks marked, and a separate report of what was checked. The checks work a
 - **Three readings and an arbiter.** Every line with numbers or dates, Arabic or Roman, is read by a
   first reader and again by a second reader. Where the two readings disagree, a third reader acts as
   arbiter. On the laptop the readers are Tesseract, `glm-ocr` and PaddleOCR. On the Linux workstation
-  the first reader is Qwen3.5-397B (see *Two versions*).
+  Qwen3.5-397B reads the whole page and then each line, and Surya OCR 2.5 is the arbiter (see *Two
+  versions*).
 - **Doubts are flagged, not hidden.** A line that no reading confirms is kept as read and marked
   `[⚠ verificare]`, with the page, for a check on the original.
 - **Columns.** Pages in two or more columns, such as newspapers and editions with facing texts, are cut
@@ -171,14 +172,26 @@ design.
 Scaffale has been built and used in two configurations. The program and the steps are the same; what
 changes is the model that reads the pages, and so the precision of the transcriptions.
 
-| | Windows: ordinary local PC | Linux: more powerful workstation |
+| | Windows: ordinary local PC | Linux: research workstation |
 |---|---|---|
-| Machine | the laptop described above, no dedicated graphics card | a Linux workstation able to run a 397-billion-parameter model |
-| First reader of the page | Tesseract | **Qwen3.5-397B**, a multimodal model that reads the whole page, served on the same machine by llama.cpp |
-| Second reader | `glm-ocr` (Ollama) | `glm-ocr` |
-| Arbiter | PaddleOCR (RapidOCR) | PaddleOCR, or Surya as a separate local service |
-| Summaries and answers | `qwen3:8b` | `qwen3:8b`, or the large model |
+| Machine | Windows 11 laptop, Intel Core Ultra 7 155U, 32 GB RAM, integrated graphics, no dedicated graphics card | Ubuntu 26.04 LTS, AMD Ryzen Threadripper PRO 7995WX (96 cores), 246 GiB RAM, 2 × NVIDIA RTX PRO 6000 Blackwell Max-Q (96 GB each, 192 GB in all) |
+| Line boxes on the page | — | RapidOCR/PaddleOCR |
+| First reading | Tesseract | **Qwen3.5-397B-A17B** reads the whole page: a multimodal model, quantised (UD-Q3_K_S), served on the same machine by llama.cpp with CUDA on both cards (about 166 GB of video memory) |
+| Second reading | `glm-ocr` (Ollama), on the lines with numbers | Qwen3.5-397B again, line by line, eight line boxes per request |
+| Third reading (arbiter) | PaddleOCR (RapidOCR) | **Surya OCR 2.5**, a separate local service on one card |
+| Embeddings | `bge-m3` | `bge-m3` |
+| Summaries, themes, answers | `qwen3:8b` | `qwen3.5:35b` and `qwen3.5:4b` (Ollama) |
+| Python | 3.9 or later | 3.12, in Scaffale's own virtual environment |
 | Character | light, slower on scans, more lines left to check by hand | heavy, much more precise, fewer doubts |
+
+**How a scan becomes a `.md` on the workstation.** The page is rendered at 300 dpi; a page in two
+columns is split; RapidOCR/PaddleOCR finds the boxes of the lines; Qwen3.5-397B reads the whole page,
+then reads it again line by line, eight boxes at a time; Surya 2.5 gives the third reading. The three
+readings vote word by word. Where they agree, the word passes; where they do not, the `.md` gets
+`[⚠ verificare]` and the line goes into a `.verifica.json` file next to it. For each line that file keeps
+the page, the box, the three readings, a note and a status — *to check*, *decided by majority* or
+*verified* — and a page of the interface shows those lines with a crop of the real page and a field to
+correct them, including the lines that the vote had accepted.
 
 The difference was measured on the author's own sources:
 
@@ -232,8 +245,9 @@ served only to the local machine. The first page asks for the folder to index.
 - **Local models, through Ollama:** `bge-m3` for embeddings; `qwen3:8b` for summaries, themes and
   answers; `glm-ocr` for the second reading.
 - **Third reader:** RapidOCR/ONNX Runtime with PaddleOCR models (optional).
-- **Linux workstation (optional):** Qwen3.5-397B through llama.cpp as reader of the pages; Surya as
-  arbiter through a separate local service.
+- **Linux workstation (optional):** Qwen3.5-397B-A17B through llama.cpp (CUDA) as reader of the pages;
+  Surya OCR 2.5 as arbiter through a separate local service; `qwen3.5:35b` and `qwen3.5:4b` through
+  Ollama for summaries and themes; Tesseract 5.5 installed without administrator rights with micromamba.
 
 The Python dependencies are listed in [`requisiti.txt`](requisiti.txt).
 
