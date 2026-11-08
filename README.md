@@ -19,8 +19,31 @@ secondary literature in Italian, Latin, Croatian, Slovene, German, French, Engli
 statement must be checked against the original: each passage found by the search keeps its page number
 and opens the original PDF at that page.
 
-I designed and developed Scaffale in 2026 for my own research archive (about 15,000 documents). It is
-published here as part of the documented record of my research software, with a permanent DOI on Zenodo.
+## Research context
+
+I designed and developed Scaffale in 2026 for my own research archive: about 15,000 documents — archival
+sources, editions, scans of early printed books, articles and notes — indexed and searchable as one corpus.
+
+- **A research corpus built with Scaffale.** Indexing the whole archive, and turning its scans into
+  checked Markdown transcriptions, made it possible to gather and compare every source on the
+  **Madonna Nicopeia** — the Byzantine icon of the Virgin Victory-maker taken to Venice after 1204 —
+  across languages, centuries and kinds of document, and to write my analysis of the icon on that basis.
+- **Local language models for the semantic analysis of archives.** In my doctoral work Scaffale is
+  presented as a first case study of a language model running entirely on a local computer, applied to
+  the semantic analysis of archives, including historical ones: search by meaning, questions answered
+  only from the archive's own passages with their page references, themes and summaries — without
+  sending any document outside the institution and without depending on a commercial online service.
+- **Verifiable transcriptions.** A historian can quote a transcription only if its numbers and dates are
+  right. Scaffale therefore converts PDFs and scans to Markdown with **three independent readings and an
+  arbiter**: every line containing numbers or dates (Arabic or Roman numerals) is read by a first reader
+  (Tesseract or a large local vision model) and again by a second local OCR model (`glm-ocr`); where the
+  two disagree, a **third reader (PaddleOCR) acts as arbiter**. If no reading is confirmed, the line is
+  kept as read and flagged `[⚠ verificare]` for a check on the original, never silently "corrected".
+  For early-modern printing the three readings also vote word by word, and the long *s* is corrected
+  with Tesseract's own dictionaries.
+
+Scaffale is published here as part of the documented record of my research software, with a permanent
+DOI on Zenodo.
 
 ## Main functions
 
@@ -38,10 +61,10 @@ published here as part of the documented record of my research software, with a 
   mode reads more passages before answering.
 - **Groups, themes and summaries** of folders and documents produced by the local model, with themes
   proposed by the model and kept or discarded by the user.
-- **Transcriptions to Markdown** of PDFs and scans, with a **check of the numbers**: lines containing
-  numbers and dates are read a second time by a local OCR model (`glm-ocr`) and, where readings disagree, by
-  a third reader (PaddleOCR); doubtful lines are marked for verification instead of being silently
-  "corrected". Existing `.md` files are collated, not overwritten.
+- **PDF to Markdown with three readings and an arbiter**: lines containing numbers and dates are read by
+  two independent OCR readers and, where they disagree, by a third reader (PaddleOCR) acting as arbiter;
+  doubtful lines are flagged for verification instead of being silently "corrected" (see *Research
+  context*). Existing `.md` files are collated, not overwritten.
 - **Duplicates and copies**: identical files, compressed copies and excerpts of the same text are
   recognised and treated as one document.
 - Long jobs can be stopped at a safe point and resumed; the computer is kept awake while working.

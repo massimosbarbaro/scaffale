@@ -2,7 +2,7 @@
   "title": "Scaffale: local indexing, OCR and semantic search of a personal research archive with a local language model",
   "upload_type": "software",
   "publication_date": "2026-11-08",
-  "description": "<p><em>Indicizzazione, OCR e ricerca semantica di un archivio di ricerca personale, tutto in locale, con un modello linguistico installato sul computer</em></p><p>Scaffale takes a disordered research folder (PDFs, Word files, notes, spreadsheets, old databases, scans, folders of photographed pages) and turns it into a searchable archive with exact, thesaurus-based and semantic search, a link to the right page of every passage, questions to the documents answered with numbered sources, groups, themes and summaries, OCR in nine languages and Markdown transcriptions in which numbers and dates are read twice and doubtful lines are flagged. Everything runs on the local computer: the language models (bge-m3, qwen3:8b, glm-ocr) are installed locally through Ollama and no document is uploaded. Written for historical research.</p><p>Designed and developed by Massimo Sbarbaro in 2026. User interface and guides in Italian; installers for Windows and Linux.</p>",
+  "description": "<p><em>Indicizzazione, OCR e ricerca semantica di un archivio di ricerca personale, tutto in locale, con un modello linguistico installato sul computer</em></p><p>Scaffale takes a disordered research folder (PDFs, Word files, notes, spreadsheets, old databases, scans, folders of photographed pages) and turns it into a searchable archive with exact, thesaurus-based and semantic search, a link to the right page of every passage, questions to the documents answered with numbered sources, groups, themes and summaries, and OCR in nine languages. PDFs and scans are converted to Markdown with three independent readings: every line with numbers or dates is read by two OCR readers and, where they disagree, a third reader (PaddleOCR) acts as arbiter; unconfirmed lines are flagged for checking on the original. Everything runs on the local computer: the language models (bge-m3, qwen3:8b, glm-ocr) are installed locally through Ollama and no document is uploaded. Developed for the author's historical research archive (about 15,000 documents), it made possible the corpus-wide study of the sources on the Madonna Nicopeia, and it is presented in the author's doctoral work as a first case study of a local language model applied to the semantic analysis of archives, including historical ones.</p><p>Designed and developed by Massimo Sbarbaro in 2026. User interface and guides in Italian; installers for Windows and Linux.</p>",
   "creators": [
     {
       "name": "Sbarbaro, Massimo",
@@ -20,7 +20,9 @@
     "historical research",
     "retrieval-augmented generation",
     "Ollama",
-    "SQLite FTS5"
+    "SQLite FTS5",
+    "Madonna Nicopeia",
+    "archives"
   ],
   "version": "1.0",
   "language": "eng",
