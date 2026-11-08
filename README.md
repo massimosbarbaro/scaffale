@@ -41,8 +41,9 @@ of no use.
 
 Scaffale tests the opposite route. Small open models run on the researcher's own computer, over the
 whole archive. Every statement leads back to the page of the original PDF where it can be checked.
-In the author's doctoral work it is presented as **a first case study of a language model running
-entirely on a local computer, applied to the semantic analysis of archives, including historical ones**.
+In the author's doctoral work it is presented as **a first example of a language model installed and
+running entirely on an ordinary Windows PC, applied to the semantic analysis of archives, including
+historical ones** (see [*Doctoral research*](#doctoral-research)).
 
 ## How it works: the pipeline
 
@@ -267,6 +268,16 @@ Indexing the whole archive and turning its scans into checked transcriptions mad
 and compare every source on the **Madonna Nicopeia**, the Byzantine icon of the Virgin Victory-maker
 taken to Venice after 1204. These sources span several languages, centuries and kinds of document, and
 the author's analysis of the icon was written on that basis.
+
+### Doctoral research
+
+Scaffale is part of the author's doctoral research. There it is presented as **a first working example
+of a large language model installed and run locally on an ordinary Windows PC** — a laptop with no
+dedicated graphics card — and applied to the **semantic analysis of archives, including historical
+ones**. The thesis uses it to show that a single researcher can index, read, transcribe, search by
+meaning and question a whole archive of sources with open models on his own computer, without uploading
+any document and with every statement traceable to the page of the original. The Linux configuration
+with Qwen3.5-397B (see *Two versions*) shows how the same method scales to a more powerful machine.
 
 Scaffale is published here as part of the documented record of the author's research software, with a
 permanent DOI on Zenodo.
