@@ -1,0 +1,6 @@
+The .traineddata files and the configs/ and tessconfigs/ folders come from the Tesseract OCR project
+(https://github.com/tesseract-ocr/tessdata, https://github.com/tesseract-ocr/tesseract) and are licensed
+under the Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0).
+
+parole_ita.txt.gz, parole_lat.txt.gz and parole_altre.txt.gz are word lists extracted with dawg2wordlist
+from the dictionaries contained in those .traineddata files, under the same license.

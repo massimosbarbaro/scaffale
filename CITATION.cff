@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you refer to this software, please cite it as below."
+type: software
+title: "Scaffale: local indexing, OCR and semantic search of a personal research archive with a local language model"
+version: "1.0"
+abstract: "Scaffale takes a disordered research folder (PDFs, Word files, notes, spreadsheets, old databases, scans, folders of photographed pages) and turns it into a searchable archive with exact, thesaurus-based and semantic search, a link to the right page of every passage, questions to the documents answered with numbered sources, groups, themes and summaries, OCR in nine languages and Markdown transcriptions in which numbers and dates are read twice and doubtful lines are flagged. Everything runs on the local computer: the language models (bge-m3, qwen3:8b, glm-ocr) are installed locally through Ollama and no document is uploaded. Written for historical research."
+authors:
+  - family-names: Sbarbaro
+    given-names: Massimo
+    orcid: "https://orcid.org/0009-0006-8965-9013"
+license: GPL-3.0-or-later
+date-released: "2026-11-08"
+repository-code: "https://github.com/massimosbarbaro/scaffale"
+keywords:
+  - "research archive"
+  - "full-text search"
+  - "semantic search"
+  - "local language model"
+  - "OCR"
+  - "digital humanities"
+  - "historical research"
+  - "retrieval-augmented generation"
+  - "Ollama"
+  - "SQLite FTS5"

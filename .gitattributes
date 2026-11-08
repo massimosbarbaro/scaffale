@@ -1,0 +1,7 @@
+*.bat -text
+*.ps1 -text
+*.sh text eol=lf
+*.traineddata binary
+*.gz binary
+*.ico binary
+*.png binary

@@ -1,0 +1,16 @@
+pymupdf
+fastapi
+uvicorn
+numpy
+requests
+
+# oltre il PDF: i formati che un archivio vecchio contiene sempre
+striprtf
+xlrd
+openpyxl
+pyodbc
+access-parser
+
+# facoltativi: il terzo giudice dei numeri nei .md (PaddleOCR), circa 280 MB
+rapidocr
+onnxruntime

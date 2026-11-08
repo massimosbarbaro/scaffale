@@ -1,0 +1,9 @@
+dati/
+esportazioni/
+quarantena/
+scaffale.ini
+__pycache__/
+*.pyc
+*.log
+bash.exe.stackdump
+.venv/
