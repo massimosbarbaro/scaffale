@@ -4,7 +4,7 @@
 
 *Indicizzazione, OCR e ricerca semantica di un archivio di ricerca personale, tutto in locale, con un modello linguistico installato sul computer*
 
-2026 · version 1.0  
+2026 · version 1.1  
 Author: **Massimo Sbarbaro** ([ORCID 0009-0006-8965-9013](https://orcid.org/0009-0006-8965-9013))
 
 ## In short
@@ -301,7 +301,7 @@ permanent DOI on Zenodo.
 Use the citation metadata in [`CITATION.cff`](CITATION.cff) (GitHub: *Cite this repository*). The release
 is archived on Zenodo with the DOI [10.5281/zenodo.24057200](https://doi.org/10.5281/zenodo.24057200).
 
-> Sbarbaro, Massimo. 2026. *Scaffale: local indexing, OCR and semantic search of a personal research archive with a local language model*. Software, version 1.0. Zenodo. https://doi.org/10.5281/zenodo.24057200.
+> Sbarbaro, Massimo. 2026. *Scaffale: local indexing, OCR and semantic search of a personal research archive with a local language model*. Software, version 1.1. Zenodo. https://doi.org/10.5281/zenodo.24057200.
 
 ## License
 
